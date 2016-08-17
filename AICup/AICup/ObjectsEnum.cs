@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AICup
+﻿namespace AICup
 {
     public enum ObjectsEnum
     {
         Empty = '.',
         Player = '@',
-
+        Enemy = 'M',
+        Bonus = '$',
     }
 }

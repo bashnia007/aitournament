@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace AICup
 {
-    public abstract class Enemy
+    public interface IEnemy 
     {
+        void GetInputData(InputData inputData);
+        Action CreateAction();
     }
 }

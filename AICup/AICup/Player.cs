@@ -10,5 +10,6 @@ namespace AICup
     {
         public ObjectsEnum Symbol => ObjectsEnum.Player;
         public Position Position { get; set; }
+        public int HP { get; set; }
     }
 }
