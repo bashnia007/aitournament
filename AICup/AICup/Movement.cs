@@ -24,7 +24,7 @@ namespace AICup
         #endregion
 
         #region Methods
-        public void Listen()
+        public void Listen(EnemyManager enemyManager)
         {
             ConsoleKeyInfo key;
             while (true)
@@ -34,6 +34,7 @@ namespace AICup
                 {
                     var action = _functions[key.Key];
                     action();
+                    enemyManager.TickProcess();
                 }
             }
         }
@@ -41,6 +42,11 @@ namespace AICup
         private void Initialize()
         {
             _functions = new Dictionary<ConsoleKey, Action>();
+            FillDictionary();
+        }
+
+        private void FillDictionary()
+        {
             _functions.Add(ConsoleKey.LeftArrow, MoveLeft);
             _functions.Add(ConsoleKey.RightArrow, MoveRight);
             _functions.Add(ConsoleKey.UpArrow, MoveUp);
@@ -58,6 +64,7 @@ namespace AICup
                 var empty = new Empty { Position = Player.Position };
                 Player.Position = newPosition;
                 Environment.SetGameObject(Player, empty);
+                Environment.InputData.PlayerPosition = newPosition;
             }
             else
             {
@@ -73,6 +80,7 @@ namespace AICup
                 var empty = new Empty { Position = Player.Position };
                 Player.Position = newPosition;
                 Environment.SetGameObject(Player, empty);
+                Environment.InputData.PlayerPosition = newPosition;
             }
             else
             {
@@ -88,6 +96,7 @@ namespace AICup
                 var empty = new Empty { Position = Player.Position };
                 Player.Position = newPosition;
                 Environment.SetGameObject(Player, empty);
+                Environment.InputData.PlayerPosition = newPosition;
             }
             else
             {
@@ -103,6 +112,7 @@ namespace AICup
                 var empty = new Empty { Position = Player.Position };
                 Player.Position = newPosition;
                 Environment.SetGameObject(Player, empty);
+                Environment.InputData.PlayerPosition = newPosition;
             }
             else
             {

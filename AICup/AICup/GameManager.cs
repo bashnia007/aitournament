@@ -12,6 +12,7 @@ namespace AICup
         public void Start()
         {
             Environment.CreateMap();
+            Environment.InputData = new InputData();
             PrintMap();
             Settings();
             var thread = new Thread(StartListen);
@@ -35,12 +36,18 @@ namespace AICup
             var movement = new Movement();
             movement.Player = new Player();
             Environment.SetGameObject(movement.Player);
-            movement.Listen();
+            var enemyManager = new EnemyManager();
+            movement.Listen(enemyManager);
         }
 
         private void Settings()
         {
             Console.CursorVisible = false;
+        }
+
+        private void CreateEnemy()
+        {
+            
         }
     }
 }

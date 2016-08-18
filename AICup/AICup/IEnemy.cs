@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AICup
 {
-    public interface IEnemy 
+    public interface IEnemy : IGameObject
     {
         void GetInputData(InputData inputData);
-        Action CreateAction();
+        BotActions CreateAction();
     }
 }

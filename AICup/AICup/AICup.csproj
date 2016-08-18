@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotActions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Empty.cs" />
     <Compile Include="EnemyManager.cs" />

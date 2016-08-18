@@ -9,6 +9,7 @@ namespace AICup
     public static class Environment
     {
         public static char[,] Map = new char[Constants.MapHeight, Constants.MapWidth];
+        public static InputData InputData { get; set; }
 
         public static void CreateMap()
         {
