@@ -24,18 +24,13 @@ namespace AICup
         #endregion
 
         #region Methods
-        public void Listen(EnemyManager enemyManager)
+        public void Listen()
         {
-            ConsoleKeyInfo key;
-            while (true)
+            var key = Console.ReadKey();
+            if (_functions.ContainsKey(key.Key))
             {
-                key = Console.ReadKey();
-                if (_functions.ContainsKey(key.Key))
-                {
-                    var action = _functions[key.Key];
-                    action();
-                    enemyManager.TickProcess();
-                }
+                var action = _functions[key.Key];
+                action();
             }
         }
 
@@ -51,6 +46,7 @@ namespace AICup
             _functions.Add(ConsoleKey.RightArrow, MoveRight);
             _functions.Add(ConsoleKey.UpArrow, MoveUp);
             _functions.Add(ConsoleKey.DownArrow, MoveDown);
+            _functions.Add(ConsoleKey.Spacebar, Shoot);
         }
         
         #endregion
@@ -70,6 +66,7 @@ namespace AICup
             {
                 Environment.SetGameObject(Player);
             }
+            Player.Direction = Direction.Left;
         }
 
         private void MoveRight()
@@ -86,6 +83,7 @@ namespace AICup
             {
                 Environment.SetGameObject(Player);
             }
+            Player.Direction = Direction.Right;
         }
 
         private void MoveUp()
@@ -102,6 +100,7 @@ namespace AICup
             {
                 Environment.SetGameObject(Player);
             }
+            Player.Direction = Direction.Up;
         }
 
         private void MoveDown()
@@ -118,6 +117,13 @@ namespace AICup
             {
                 Environment.SetGameObject(Player);
             }
+            Player.Direction = Direction.Down;
+        }
+
+        private void Shoot()
+        {
+            var bullet = new Bullet();
+            
         }
         #endregion
     }

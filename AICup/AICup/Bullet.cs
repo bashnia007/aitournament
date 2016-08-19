@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace AICup
 {
-    public class Player : IGameObject
+    public class Bullet : IGameObject
     {
-        public ObjectsEnum Symbol => ObjectsEnum.Player;
         public Position Position { get; set; }
-        public int HP { get; set; }
-        public Direction Direction { get; set; }
+        public ObjectsEnum Symbol => ObjectsEnum.Bullet;
     }
 }

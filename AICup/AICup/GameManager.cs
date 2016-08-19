@@ -37,7 +37,12 @@ namespace AICup
             movement.Player = new Player();
             Environment.SetGameObject(movement.Player);
             var enemyManager = new EnemyManager();
-            movement.Listen(enemyManager);
+            while (true)
+            {
+                movement.Listen();
+                enemyManager.TickProcess();
+                Thread.Sleep(Constants.ThreadSleepTime);
+            }
         }
 
         private void Settings()

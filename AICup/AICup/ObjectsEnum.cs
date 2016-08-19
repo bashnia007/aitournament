@@ -6,5 +6,6 @@
         Player = '@',
         Enemy = 'M',
         Bonus = '$',
+        Bullet = '*',
     }
 }

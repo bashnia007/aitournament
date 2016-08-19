@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BotActions.cs" />
+    <Compile Include="Bullet.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Empty.cs" />
     <Compile Include="EnemyManager.cs" />
     <Compile Include="IEnemy.cs" />
