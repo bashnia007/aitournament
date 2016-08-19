@@ -9,6 +9,8 @@ namespace AICup
     public static class Environment
     {
         public static char[,] Map = new char[Constants.MapHeight, Constants.MapWidth];
+        public static List<Bullet> Bullets = new List<Bullet>();
+        public static List<IEnemy> Enemies = new List<IEnemy>();
         public static InputData InputData { get; set; }
 
         public static void CreateMap()
@@ -40,6 +42,64 @@ namespace AICup
             Console.SetCursorPosition(go.Position.X, go.Position.Y);
             Console.Write((char) go.Symbol);
             Console.SetCursorPosition(go.Position.X, go.Position.Y);
+        }
+
+        public static void UpdateBullets()
+        {
+            foreach (var bullet in Bullets)
+            {
+                if (bullet.Direction == Direction.Down)
+                {
+                    var newPosition = new Position(bullet.Position.X, bullet.Position.Y + 1);
+                    if (IsInField(newPosition))
+                    {
+                        var empty = new Empty { Position = bullet.Position };
+                        bullet.Position = newPosition;
+                        SetGameObject(bullet, empty);
+                    }
+                }
+                if (bullet.Direction == Direction.Up)
+                {
+                    var newPosition = new Position(bullet.Position.X, bullet.Position.Y - 1);
+                    if (IsInField(newPosition))
+                    {
+                        var empty = new Empty { Position = bullet.Position };
+                        bullet.Position = newPosition;
+                        SetGameObject(bullet, empty);
+                    }
+                }
+                if (bullet.Direction == Direction.Right)
+                {
+                    var newPosition = new Position(bullet.Position.X + 1, bullet.Position.Y);
+                    if (IsInField(newPosition))
+                    {
+                        var empty = new Empty { Position = bullet.Position };
+                        bullet.Position = newPosition;
+                        SetGameObject(bullet, empty);
+                    }
+                }
+                if (bullet.Direction == Direction.Left)
+                {
+                    var newPosition = new Position(bullet.Position.X - 1, bullet.Position.Y);
+                    if (IsInField(newPosition))
+                    {
+                        var empty = new Empty { Position = bullet.Position };
+                        bullet.Position = newPosition;
+                        SetGameObject(bullet, empty);
+                    }
+                }
+            }
+        }
+
+        public static void CheckToKill(Bullet bullet)
+        {
+            foreach (var enemy in Enemies)
+            {
+                if (bullet.Position.X == enemy.Position.X && bullet.Position.Y == enemy.Position.Y)
+                {
+                    
+                }
+            }
         }
     }
 }

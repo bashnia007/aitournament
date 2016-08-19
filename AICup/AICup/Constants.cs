@@ -8,6 +8,6 @@
         public const int MinWidth = 0;
         public const int MinHeight = 0;
 
-        public const int ThreadSleepTime = 500;
+        public const int ThreadSleepTime = 100;
     }
 }

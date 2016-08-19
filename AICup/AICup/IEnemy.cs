@@ -10,5 +10,7 @@ namespace AICup
     {
         void GetInputData(InputData inputData);
         BotActions CreateAction();
+
+        void Destroy();
     }
 }

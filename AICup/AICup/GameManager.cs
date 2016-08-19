@@ -41,7 +41,9 @@ namespace AICup
             {
                 movement.Listen();
                 enemyManager.TickProcess();
+                Environment.UpdateBullets();
                 Thread.Sleep(Constants.ThreadSleepTime);
+                Environment.UpdateBullets();
             }
         }
 

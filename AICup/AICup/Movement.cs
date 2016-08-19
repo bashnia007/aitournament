@@ -122,8 +122,9 @@ namespace AICup
 
         private void Shoot()
         {
-            var bullet = new Bullet();
-            
+            var bullet = new Bullet {Position = Player.Position};
+            bullet.Direction = Player.Direction;
+            Environment.Bullets.Add(bullet);
         }
         #endregion
     }

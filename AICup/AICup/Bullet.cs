@@ -10,5 +10,6 @@ namespace AICup
     {
         public Position Position { get; set; }
         public ObjectsEnum Symbol => ObjectsEnum.Bullet;
+        public Direction Direction { get; set; }
     }
 }
