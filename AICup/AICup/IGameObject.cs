@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AICup
 {
-    public interface IGameObject
+    public interface IGameObject : IDisposable
     {
         ObjectsEnum Symbol { get; }
         Position Position { get; set; }

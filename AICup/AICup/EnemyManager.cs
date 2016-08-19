@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AICup
 {
+    delegate void DestroyEnemy();
     public class EnemyManager
     {
         #region Privates
 
-        private List<IEnemy> _enemies;
+        public List<IEnemy> Enemies;
         private Dictionary<BotActions, Action<IGameObject>> _botActions;
         #endregion
 
@@ -25,7 +26,7 @@ namespace AICup
         #region Methods
         public void TickProcess()
         {
-            foreach (var enemy in _enemies)
+            foreach (var enemy in Enemies)
             {
                 enemy.GetInputData(Environment.InputData);
                 var botAction = enemy.CreateAction();
@@ -38,7 +39,7 @@ namespace AICup
         }
         private void Init()
         {
-            _enemies = new List<IEnemy>();
+            Enemies = new List<IEnemy>();
             _botActions = new Dictionary<BotActions, Action<IGameObject>>();
             CreateEnemies();
         }
@@ -51,7 +52,7 @@ namespace AICup
                 {
                     Position = new Position(rnd.Next(Constants.MapWidth), rnd.Next(Constants.MapHeight))
                 };
-                _enemies.Add(bot);
+                Enemies.Add(bot);
                 Environment.SetGameObject(bot);
             }
             FillActionDictionary();
@@ -64,6 +65,7 @@ namespace AICup
             _botActions.Add(BotActions.MoveLeft, MoveLeft);
             _botActions.Add(BotActions.MoveRight, MoveRight);
         }
+        
         #endregion
         
         #region DictionaryActions
@@ -127,5 +129,11 @@ namespace AICup
             }
         }
         #endregion
+
+        public void DestroyEnemyHandler(IEnemy enemy)
+        {
+            Enemies.Remove(enemy);
+            enemy.Dispose();
+        }
     }
 }

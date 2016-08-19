@@ -9,8 +9,8 @@ namespace AICup
     public static class Environment
     {
         public static char[,] Map = new char[Constants.MapHeight, Constants.MapWidth];
+        public static List<IGameObject> AvaivableObjects = new List<IGameObject>();
         public static List<Bullet> Bullets = new List<Bullet>();
-        public static List<IEnemy> Enemies = new List<IEnemy>();
         public static InputData InputData { get; set; }
 
         public static void CreateMap()
@@ -93,13 +93,7 @@ namespace AICup
 
         public static void CheckToKill(Bullet bullet)
         {
-            foreach (var enemy in Enemies)
-            {
-                if (bullet.Position.X == enemy.Position.X && bullet.Position.Y == enemy.Position.Y)
-                {
-                    
-                }
-            }
+
         }
     }
 }

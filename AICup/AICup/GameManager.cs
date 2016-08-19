@@ -51,10 +51,6 @@ namespace AICup
         {
             Console.CursorVisible = false;
         }
-
-        private void CreateEnemy()
-        {
-            
-        }
+        
     }
 }

@@ -54,10 +54,11 @@ namespace AICup
             }
             return BotActions.Sleep;
         }
+        
+        #endregion
 
-        public void Destroy()
+        public void Dispose()
         {
         }
-        #endregion
     }
 }
